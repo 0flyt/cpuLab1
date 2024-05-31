@@ -1,13 +1,21 @@
-import { useParams } from 'react-router-dom';
-import WeatherCard from '../components/WeatherCard';
+import styled from 'styled-components';
+import SomeComponent from '../components/SomeComponent';
+import WeatherCardHour from '../components/WeatherCardHour';
+import FetchComponent from '../components/FetchComponent';
+
+const Quote = styled.p`
+  font-style: italic;
+  color: #333;
+`;
 
 function CityPage() {
-  const { cityName } = useParams();
   return (
-    <div>
-      <h1>{cityName ? `Väder för ${cityName}` : 'Ingen stad vald'}</h1>
-      <WeatherCard />
-    </div>
+    <>
+      <Quote>Weather forecast for tonight: dark</Quote>
+      <SomeComponent />
+      <FetchComponent />
+      <WeatherCardHour />
+    </>
   );
 }
 

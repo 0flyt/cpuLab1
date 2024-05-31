@@ -42,6 +42,28 @@ const Nav = styled.nav`
   }
 `;
 
+const Button = styled.button`
+  ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #007bff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
 function App() {
   const [someValue, setSomeValue] = useState(null);
   const [currentWData, setCurrentWData] = useState(null);
@@ -58,10 +80,34 @@ function App() {
             <Nav>
               <ul>
                 <li>
-                  <Link to="/">Hem</Link>
+                  <Link to="/">5-dagars överblick</Link>
                 </li>
                 <li>
-                  <Link to="/CityPage">Om oss</Link>
+                  <Link to="/CityPage">Timme för timme</Link>
+                </li>
+                <li>
+                  <Button
+                    to="/CityPage/Göteborg"
+                    onClick={() => setSomeValue('Göteborg')}
+                  >
+                    Göteborg
+                  </Button>
+                </li>
+                <li>
+                  <Button
+                    to="/CityPage/Stockholm"
+                    onClick={() => setSomeValue('Stockholm')}
+                  >
+                    Stockholm
+                  </Button>
+                </li>
+                <li>
+                  <Button
+                    to="/CityPage/Malmö"
+                    onClick={() => setSomeValue('Malmö')}
+                  >
+                    Malmö
+                  </Button>
                 </li>
               </ul>
             </Nav>
