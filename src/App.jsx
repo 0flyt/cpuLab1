@@ -2,6 +2,10 @@ import '../global.css';
 import styled from 'styled-components';
 import CityPage from './pages/CityPage';
 import Home from './pages/Home';
+// import WeatherContext from './context/WeatherContext';
+import { useState } from 'react';
+import SomeContext from './context/SomeContext';
+// import SomeComponent from './components/SomeComponent';
 
 import {
   createHashRouter,
@@ -39,6 +43,9 @@ const Nav = styled.nav`
 `;
 
 function App() {
+  const [someValue, setSomeValue] = useState(null);
+  const [currentWData, setCurrentWData] = useState(null);
+  const [forecastWData, setForecastWData] = useState(null);
   const router = createHashRouter([
     {
       children: [
@@ -69,7 +76,18 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <SomeContext.Provider
+        value={{
+          someValue,
+          setSomeValue,
+          currentWData,
+          setCurrentWData,
+          forecastWData,
+          setForecastWData,
+        }}
+      >
+        <RouterProvider router={router} />
+      </SomeContext.Provider>
     </>
   );
 }

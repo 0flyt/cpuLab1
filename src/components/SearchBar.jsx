@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+// import WeatherContext from '../context/WeatherContext';
 
 const Input = styled.input`
   border-radius: 2px;
@@ -21,24 +21,26 @@ const Button = styled.button`
   }
 `;
 
-function SearchBar({ setSearchWeather }) {
+function SearchBar() {
   const [inputValue, setInputValue] = useState('');
+  // const { setSearchInput } = useContext(WeatherContext);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(inputValue);
+    // setSearchInput(inputValue);
+  }
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <Input
         type="text"
-        placeholder="Sök"
+        placeholder="Ange stad"
         onChange={(event) => setInputValue(event.target.value)}
-        value={inputValue}
       />
-      <Button onClick={() => setSearchWeather(inputValue)}>Sök</Button>
-    </>
+      <Button type="submit">Ange stad</Button>
+    </form>
   );
 }
-
-SearchBar.propTypes = {
-  setSearchWeather: PropTypes.func,
-};
 
 export default SearchBar;

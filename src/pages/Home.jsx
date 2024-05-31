@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import SearchBar from '../components/searchBarComponent';
+import SomeComponent from '../components/SomeComponent';
+import WeatherCard from '../components/WeatherCard';
+import FetchComponent from '../components/FetchComponent';
 
 const Quote = styled.p`
   font-style: italic;
@@ -10,7 +12,9 @@ function Home() {
   return (
     <>
       <Quote>Weather forecast for tonight: dark</Quote>
-      <SearchBar />
+      <SomeComponent />
+      <FetchComponent />
+      <WeatherCard />
     </>
   );
 }
