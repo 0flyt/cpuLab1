@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import SomeComponent from '../components/SomeComponent';
-import WeatherCard from '../components/WeatherCard';
-import FetchComponent from '../components/FetchComponent';
-import { useParams } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import SomeContext from '../context/SomeContext';
-import SearchHistory from '../components/SearchHistory';
+import SomeComponent from '../components/SomeComponent';
+import WeatherCardHour from '../components/WeatherCardHour';
+import FetchComponent from '../components/FetchComponent';
+// import SearchHistory from '../components/SearchHistory';
 
 const Quote = styled.p`
   font-style: italic;
@@ -13,7 +13,7 @@ const Quote = styled.p`
   text-align: center;
 `;
 
-function Home() {
+function CityPage() {
   const { cityName } = useParams();
   const { setSomeValue } = useContext(SomeContext);
 
@@ -25,13 +25,12 @@ function Home() {
 
   return (
     <>
-      <SearchHistory />
       <SomeComponent />
       <FetchComponent />
-      <WeatherCard />
+      <WeatherCardHour />
       <Quote>Weather forecast for tonight: dark</Quote>
     </>
   );
 }
 
-export default Home;
+export default CityPage;

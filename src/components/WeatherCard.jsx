@@ -2,20 +2,37 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 import SomeContext from '../context/SomeContext';
 
+// Samma stilattribut som WeatherCardHour
+const backgroundColor = '#E0F7FF';
+const textColor = '#333';
+const glassEffect = `
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+`;
+const blueColor = '#3f8fffce';
+const systemFont = `
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+`;
+
 const WeatherCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 16px;
-  max-width: 1200px;
+  width: fit-content;
   margin: 20px auto;
-  background-color: #f9f9f9;
+  background-color: ${backgroundColor};
+  ${glassEffect}
+  ${systemFont}
 `;
 
 const CityName = styled.h2`
   text-align: center;
   font-size: 2em;
   margin-bottom: 20px;
+  color: ${blueColor};
 `;
 
 const WeatherCardsWrapper = styled.div`
@@ -38,6 +55,9 @@ const WeatherCardContent = styled.div`
   &:hover {
     transform: translateY(-5px);
   }
+
+  ${glassEffect}
+  ${systemFont}
 `;
 
 const WeatherIcon = styled.img`
@@ -51,7 +71,7 @@ const Day = styled.h3`
 
 const DateText = styled.p`
   font-size: 0.9em;
-  color: #888;
+  color: ${textColor};
   margin: 4px 0 0;
 `;
 
@@ -120,7 +140,7 @@ function WeatherCard() {
   }
 
   const renderForecast = () => {
-    const forecastDays = forecastWData.forecast.forecastday.slice(0, 5); // Hämta de nästkommande fem dagarna från prognosen
+    const forecastDays = forecastWData.forecast.forecastday.slice(0, 5);
 
     return forecastDays.map((day, index) => {
       const date = new Date(day.date);

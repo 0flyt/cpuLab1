@@ -17,11 +17,17 @@ function FetchComponent() {
         const currentWResponse = await fetch(
           `http://api.weatherapi.com/v1/current.json?key=${ApiKey}&q=${someValue}&aqi=yes`
         );
+        if (!currentWResponse.ok) {
+          throw new Error('Kunde inte hämta nuvarande väderdata');
+        }
         const currentW = await currentWResponse.json();
         console.log('loggar', currentW);
         const forecastWResponse = await fetch(
           `http://api.weatherapi.com/v1/forecast.json?key=${ApiKey}&q=${someValue}&days=5&aqi=yes&alerts=yes`
         );
+        if (!forecastWResponse.ok) {
+          throw new Error('Kunde inte hämta väderprognosdata');
+        }
         const forecastW = await forecastWResponse.json();
         console.log(forecastW);
         setCurrentWData(currentW);

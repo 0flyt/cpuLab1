@@ -1,11 +1,9 @@
 import '../global.css';
 import styled from 'styled-components';
-import CityPage from './pages/CityPage';
+import Hours from './pages/Hours';
 import Home from './pages/Home';
-// import WeatherContext from './context/WeatherContext';
 import { useState } from 'react';
 import SomeContext from './context/SomeContext';
-// import SomeComponent from './components/SomeComponent';
 
 import {
   createHashRouter,
@@ -17,7 +15,11 @@ import {
 const NavContainer = styled.header`
   background-color: #f8f9fa;
   padding: 1rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #3f8fff1f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Nav = styled.nav`
@@ -26,6 +28,7 @@ const Nav = styled.nav`
     padding: 0;
     display: flex;
     gap: 1rem;
+    align-items: center;
   }
 
   li {
@@ -34,34 +37,40 @@ const Nav = styled.nav`
 
   a {
     text-decoration: none;
-    color: #007bff;
+    color: #3f8fffce;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 
     &:hover {
-      text-decoration: underline;
+      background-color: #3f8fffce;
+      color: #fff;
     }
   }
 `;
 
 const Button = styled.button`
-  ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-  }
+  text-decoration: none;
+  color: #3f8fffce;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 2px solid #3f8fff49;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
-  li {
-    margin: 0;
+  &:hover {
+    background-color: #3f8fffce;
+    color: #fff;
   }
+`;
 
-  a {
-    text-decoration: none;
-    color: #007bff;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+const Main = styled.main`
+  background-color: #e0f7ff;
+  min-height: 100vh;
+  padding: 2rem;
 `;
 
 function App() {
@@ -71,8 +80,8 @@ function App() {
   const router = createHashRouter([
     {
       children: [
-        { element: <Home />, path: '/' },
-        { element: <CityPage />, path: '/CityPage/:cityName?' },
+        { element: <Home />, path: '/:cityName?' },
+        { element: <Hours />, path: '/Hours/:cityName?' },
       ],
       element: (
         <>
@@ -83,11 +92,11 @@ function App() {
                   <Link to="/">5-dagars överblick</Link>
                 </li>
                 <li>
-                  <Link to="/CityPage">Timme för timme</Link>
+                  <Link to="/Hours/">Timme för timme</Link>
                 </li>
                 <li>
                   <Button
-                    to="/CityPage/Göteborg"
+                    to="/Hours/Göteborg"
                     onClick={() => setSomeValue('Göteborg')}
                   >
                     Göteborg
@@ -95,7 +104,7 @@ function App() {
                 </li>
                 <li>
                   <Button
-                    to="/CityPage/Stockholm"
+                    to="/Hours/Stockholm"
                     onClick={() => setSomeValue('Stockholm')}
                   >
                     Stockholm
@@ -103,7 +112,7 @@ function App() {
                 </li>
                 <li>
                   <Button
-                    to="/CityPage/Malmö"
+                    to="/Hours/Malmö"
                     onClick={() => setSomeValue('Malmö')}
                   >
                     Malmö
@@ -112,9 +121,9 @@ function App() {
               </ul>
             </Nav>
           </NavContainer>
-          <main>
+          <Main>
             <Outlet />
-          </main>
+          </Main>
         </>
       ),
     },
