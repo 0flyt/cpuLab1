@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 import SomeContext from '../context/SomeContext';
 
-// Samma stilattribut som WeatherCardHour
 const backgroundColor = '#E0F7FF';
 const textColor = '#333';
 const glassEffect = `

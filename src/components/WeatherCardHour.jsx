@@ -2,13 +2,9 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 import SomeContext from '../context/SomeContext';
 
-// Bakgrundsfärg
-const backgroundColor = '#E0F7FF'; // En svag blå färg som representerar vädersida
-
-// Textfärg
+const backgroundColor = '#E0F7FF';
 const textColor = '#333';
 
-// Glas-effekt
 const glassEffect = `
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
@@ -16,10 +12,8 @@ const glassEffect = `
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `;
 
-// Blå färg för rubrik och tabellhuvuden
 const blueColor = '#3f8fffce';
 
-// Systemfont
 const systemFont = `
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 `;

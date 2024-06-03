@@ -5,7 +5,6 @@ import FetchComponent from '../components/FetchComponent';
 import { useParams } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import SomeContext from '../context/SomeContext';
-import SearchHistory from '../components/SearchHistory';
 
 const Quote = styled.p`
   font-style: italic;
@@ -25,7 +24,6 @@ function Home() {
 
   return (
     <>
-      <SearchHistory />
       <SomeComponent />
       <FetchComponent />
       <WeatherCard />

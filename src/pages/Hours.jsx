@@ -5,7 +5,6 @@ import SomeContext from '../context/SomeContext';
 import SomeComponent from '../components/SomeComponent';
 import WeatherCardHour from '../components/WeatherCardHour';
 import FetchComponent from '../components/FetchComponent';
-// import SearchHistory from '../components/SearchHistory';
 
 const Quote = styled.p`
   font-style: italic;

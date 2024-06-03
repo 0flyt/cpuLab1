@@ -35,19 +35,17 @@ function FetchComponent() {
         setError(null);
       } catch (error) {
         console.error(error);
-        setError(`Misslyckades med att fetcha väder: ${error.message}`);
+        setError(`Prognosdata saknas: ${error.message}`);
       } finally {
         setIsLoading(false);
       }
     };
 
-    // Kontrollera om someValue finns innan du börjar hämta data
     if (someValue !== null) {
       fetchWeatherData();
     }
   }, [someValue, setCurrentWData, setForecastWData]);
 
-  // Kontrollera om someValue inte finns och rendera null om så är fallet
   if (!someValue) {
     return null;
   }
