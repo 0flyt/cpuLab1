@@ -114,9 +114,9 @@ const AstroInfo = styled.div`
   }
 `;
 
-const convertKphToMps = (kph) => (kph / 3.6).toFixed(1);
+const kilometerToMeter = (kph) => (kph / 3.6).toFixed(1);
 
-const convertTo24HourFormat = (time) => {
+const twelveTo24 = (time) => {
   const [timePart, modifier] = time.split(' ');
   let [hours, minutes] = timePart.split(':').map(Number);
 
@@ -162,14 +162,14 @@ function WeatherCard() {
             alt={day.day.condition.text}
           />
           <Precipitation>{day.day.totalprecip_mm} mm</Precipitation>
-          <WindInfo>{convertKphToMps(day.day.maxwind_kph)} m/s</WindInfo>
+          <WindInfo>{kilometerToMeter(day.day.maxwind_kph)} m/s</WindInfo>
           <AstroInfo>
             <div>
               🌅
               <p>
-                {convertTo24HourFormat(day.astro.sunrise)}
+                {twelveTo24(day.astro.sunrise)}
                 <br />
-                {convertTo24HourFormat(day.astro.sunset)}
+                {twelveTo24(day.astro.sunset)}
               </p>
             </div>
           </AstroInfo>

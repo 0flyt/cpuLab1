@@ -83,10 +83,19 @@ function SomeComponent() {
           return errors;
         }}
       >
-        {({ dirty, isSubmitting, isValid }) => (
+        {({ dirty, isSubmitting, isValid, errors, touched }) => (
           <StyledForm>
             <label>
-              <StyledInput name="searchCity" placeholder="Ange stad" />
+              <StyledInput
+                name="searchCity"
+                placeholder="Ange stad"
+                style={{
+                  borderColor:
+                    errors.searchCity && touched.searchCity
+                      ? 'red'
+                      : '#3f8fff57',
+                }}
+              />
             </label>
             <ErrorMessage component="span" name="searchCity" />
             <StyledButton

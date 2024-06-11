@@ -35,7 +35,7 @@ const CityPageContainer = styled.div`
   ${systemFont}
 `;
 
-const HourlyWeatherTable = styled.table`
+const HourTable = styled.table`
   width: 100%;
   border-collapse: collapse;
 `;
@@ -86,7 +86,7 @@ const CityPage = () => {
       <CityName>{forecastWData.location.name}</CityName>
       {nextFiveDays.map((day, index) => (
         <div key={index}>
-          <HourlyWeatherTable>
+          <HourTable>
             <thead>
               <tr>
                 <TableHeader>Tid</TableHeader>
@@ -121,7 +121,7 @@ const CityPage = () => {
                 </TableRow>
               ))}
             </tbody>
-          </HourlyWeatherTable>
+          </HourTable>
         </div>
       ))}
     </CityPageContainer>
